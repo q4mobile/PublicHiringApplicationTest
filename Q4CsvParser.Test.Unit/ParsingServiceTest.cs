@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Q4CsvParser.Web.Core;
 
 namespace Q4CsvParser.Test.Unit
 {
@@ -14,9 +15,19 @@ namespace Q4CsvParser.Test.Unit
     public class ParsingServiceTest
     {
         //TODO Unit test the ParsingService here
-        [TestMethod]
-        public void TestMethod1()
+        [TestMethod, TestCategory("Parsing")]
+        public void parsing_empty_should_return_false()
         {
+            var p = new ParsingService();
+            var s = p.ParseCsv("", false);
+            Assert.IsFalse(s == null);
+        }
+        [TestMethod, TestCategory("Parsing")]
+        public void parsing_should_return_true()
+        {
+            var p = new ParsingService();
+            var s = p.ParseCsv("Id,Name\r\n1,Art\r\n2,Language\r\n3,Math\r\n4,Gym\r\n5,Science\r\n", true);
+            Assert.IsFalse(s == null);
         }
     }
 

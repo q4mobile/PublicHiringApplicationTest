@@ -14,21 +14,21 @@ namespace Q4CsvParser.Test.Unit
     public class ValidationServiceTest
     {
         //TODO unit test the ValidationService here
-        [TestMethod]
+        [TestMethod, TestCategory("Validation")]
         public void IsCsvFile_must_return_true_for_csv()
         {
             var v = new ValidationService();
             var result = v.IsCsvFile("myFile.csv");
             Assert.IsTrue(result);
         }
-        [TestMethod]
+        [TestMethod, TestCategory("Validation")]
         public void IsCsvFile_must_return_false_for_txt()
         {
             var v = new ValidationService();
             var result = v.IsCsvFile("myFile.txt");
             Assert.IsFalse(result);
         }
-        [TestMethod]
+        [TestMethod, TestCategory("Validation")]
         public void IsCsvFile_must_return_false_for_file()
         {
             var v = new ValidationService();
