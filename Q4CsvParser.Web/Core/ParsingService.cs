@@ -39,9 +39,20 @@ namespace Q4CsvParser.Web.Core
             {
                 var DataRows = new List<CsvRow>();
 
+                for(var i=0; i<rows.Length; i++)
+                {
+                    var data = rows[i].Split(',');
+                    for (var j = 0; j < data.Length; j++)
+                    {
+                        // each column value
+                        var col = new CsvColumn(data[j]);
+                        //DataRows.Add(col);
+                    }
+                }
                 result.Rows = DataRows;
             }
             return result;
         }
     }
+
 }
