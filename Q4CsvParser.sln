@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Q4CsvParser.Domain", "Q4CsvParser.Domain\Q4CsvParser.Domain.csproj", "{1AD6F9CE-F1EA-4AE1-90E3-A8031767B76F}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Q4CsvParser.Test.Integration", "Q4CsvParser.Test.Integration\Q4CsvParser.Test.Integration.csproj", "{19669A08-8ACD-4680-8A9A-CEAC76E46693}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Q4CsvParser.Test.Unit", "Q4CsvParser.Test.Unit\Q4CsvParser.Test.Unit.csproj", "{CFBB9FEC-0B56-4103-B4C9-C10052A0AD45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{9E04C399-9FBA-43BE-8A5A-6484EF32BA45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,8 +41,15 @@ Global
 		{CFBB9FEC-0B56-4103-B4C9-C10052A0AD45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFBB9FEC-0B56-4103-B4C9-C10052A0AD45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFBB9FEC-0B56-4103-B4C9-C10052A0AD45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E04C399-9FBA-43BE-8A5A-6484EF32BA45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E04C399-9FBA-43BE-8A5A-6484EF32BA45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E04C399-9FBA-43BE-8A5A-6484EF32BA45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E04C399-9FBA-43BE-8A5A-6484EF32BA45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36A7DFAA-42E2-474B-941C-0B82C7B4BF9E}
 	EndGlobalSection
 EndGlobal
