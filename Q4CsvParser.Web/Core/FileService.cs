@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Web;
 using Q4CsvParser.Contracts;
 
@@ -22,7 +23,17 @@ namespace Q4CsvParser.Web.Core
         public string StoreFile(HttpPostedFileBase file)
         {
             //TODO fill in your logic here
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+
+            if (file != null && file.ContentLength > 0)
+            {
+                var destPath = System.Web.HttpContext.Current.Server.MapPath(UploadFilePath);
+                var fileName = Path.GetFileName(file.FileName);
+                var serverPath = Path.Combine(destPath, fileName);
+                file.SaveAs(serverPath);
+                return serverPath;
+            }
+            return "";
         }
 
         /// <summary>
@@ -34,7 +45,18 @@ namespace Q4CsvParser.Web.Core
         public string ReadFile(string filePath)
         {
             //TODO fill in your logic here
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+
+            if (ExistFile(filePath))
+                return File.ReadAllText(filePath);
+            else
+                return "";
+        }
+
+        // helper methods, here for now
+        public bool ExistFile(string filePath = "")
+        {
+            return File.Exists(filePath);
         }
     }
 }

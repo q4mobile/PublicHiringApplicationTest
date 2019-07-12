@@ -18,7 +18,12 @@ namespace Q4CsvParser.Web.Core
         public CsvTable ParseCsv(string fileContent, bool containsHeader)
         {
             //TODO fill in your logic here
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+
+            // now parse string fileContent in CsvTable object
+            var result = new CsvTable();
+
+            return result;
         }
     }
 }

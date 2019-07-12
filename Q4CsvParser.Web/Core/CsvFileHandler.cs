@@ -14,8 +14,7 @@ namespace Q4CsvParser.Web.Core
         private readonly IValidationService _validationService;
         private readonly IFileService _fileService;
 
-        public CsvFileHandler(IParsingService parsingService, IValidationService validationService,
-            IFileService fileService)
+        public CsvFileHandler(IParsingService parsingService, IValidationService validationService, IFileService fileService)
         {
             _parsingService = parsingService;
             _validationService = validationService;
@@ -34,8 +33,7 @@ namespace Q4CsvParser.Web.Core
 
             if (!_validationService.IsCsvFile(inputFile.FileName))
             {
-                result.ErrorMessage =
-                    $"Selected file, {inputFile.FileName}, does not have supported format CSV. Nothing has been uploaded";
+                result.ErrorMessage = $"Selected file, {inputFile.FileName}, does not have supported format CSV. Nothing has been uploaded";
                 return result;
             }
 
