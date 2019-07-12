@@ -20,6 +20,8 @@ namespace Q4CsvParser.Web.Core
 
             // simple test for now:
             return filename.ToLower().Contains(".csv");
+
+            // return filename != null ? String.Equals(Path.GetExtension(filename), ".csv", StringComparison.OrdinalIgnoreCase) : false;
         }
     }
 }

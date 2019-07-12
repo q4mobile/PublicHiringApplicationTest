@@ -11,24 +11,36 @@
 
 @if (Model.CsvTable.Rows.Count() > 0)
 {
-    <table cellpadding="0" cellspacing="0" border="1">
+    <table class="table table-bordered">
         @if (Model.CsvTable.HeaderRow.Columns.Count() > 0)
         {
-            <tr>
+            <thead class="thead-dark success">
+            <tr class="success">
                 @foreach (var headerColumn in Model.CsvTable.HeaderRow.Columns)
                 {
-                    <th>@headerColumn.Value</th>
+                    <th scope="col">@headerColumn.Value</th>
                 }
             </tr>
+            </thead>
         }
-        @foreach (var dataRow in Model.CsvTable.Rows)
+        @if (Model.CsvTable.Rows.Count() > 0)
         {
-            <tr>
-                @foreach (var rowColumn in dataRow.Columns)
-                {
-                    <td>@rowColumn.Value</td>
-                }
-            </tr>
+            <tbody>
+            @foreach (var dataRow in Model.CsvTable.Rows)
+            {
+                <tr>
+                    @foreach (var rowColumn in dataRow.Columns)
+                    {
+                        <td>@rowColumn.Value</td>
+                    }
+                </tr>
+            }
+            </tbody>
+            
         }
     </table>
+}
+else
+{
+    <p>No data to display.</p>
 }

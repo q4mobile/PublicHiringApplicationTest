@@ -24,37 +24,42 @@ namespace Q4CsvParser.Web.Core
             // now parse string fileContent in CsvTable object
             var result = new CsvTable();
 
-            // for now to avoid mixed EOF
-            string content = fileContent.Replace("\r\n", "\n"); 
-            var rows = content.Split('\n');
+            var rowsArr = ConvertToLines(fileContent);
 
             //header first
+            var HeaderRow = new CsvRow();
             if (containsHeader)
             {
-                var HeaderRow = new CsvRow();
-
-                result.HeaderRow = HeaderRow;
+                HeaderRow = ConvertLinetoRow(rowsArr[0]);
             }
-            if (rows.Length > 0)
+            result.HeaderRow = HeaderRow;
+
+            var DataRows = new List<CsvRow>();
+            if (rowsArr.Length > 0)
             {
-                var DataRows = new List<CsvRow>();
-
-                for(var i=0; i<rows.Length; i++)
+                for (var i = (containsHeader ? 1 : 0); i < rowsArr.Length; i++)
                 {
-                    var dataRow = new CsvRow();
-
-                    var rowCols = rows[i].Split(',');
-                    for (var j = 0; j < rowCols.Length; j++)
-                    {
-                        // each column value
-                        var col = new CsvColumn(rowCols[j]);
-                        dataRow.Columns.Add(col);
-                    }
-                    DataRows.Add(dataRow);
+                    DataRows.Add(ConvertLinetoRow(rowsArr[i]));
                 }
-                result.Rows = DataRows;
             }
+            result.Rows = DataRows;
+
             return result;
+        }
+        private string[] ConvertToLines(string text)
+        {
+            return text.Split(new[] { "\r\n", "\r", "\n" },StringSplitOptions.RemoveEmptyEntries);
+        }
+        private CsvRow ConvertLinetoRow(string text)
+        {
+            var dataRow = new CsvRow();
+            var rowCols = text.Split(',');
+            for (var j = 0; j < rowCols.Length; j++)
+            {
+                var col = new CsvColumn(rowCols[j]);
+                dataRow.Columns.Add(col);
+            }
+           return dataRow;
         }
     }
 
