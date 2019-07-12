@@ -15,13 +15,8 @@ namespace Q4CsvParser.Web.Core
         /// <returns></returns>
         public bool IsCsvFile(string filename)
         {
-            //TODO fill in your logic here
-            //throw new NotImplementedException();
-
             // simple test for now:
-            return filename.ToLower().Contains(".csv");
-
-            // return filename != null ? String.Equals(Path.GetExtension(filename), ".csv", StringComparison.OrdinalIgnoreCase) : false;
+            return String.IsNullOrEmpty(filename) ? false : filename.ToLower().Contains(".csv");
         }
     }
 }

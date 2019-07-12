@@ -22,9 +22,6 @@ namespace Q4CsvParser.Web.Core
         /// <returns>The file path in the appData folder the file was saved to</returns>
         public string StoreFile(HttpPostedFileBase file)
         {
-            //TODO fill in your logic here
-            //throw new NotImplementedException();
-
             if (file != null && file.ContentLength > 0)
             {
                 var destPath = System.Web.HttpContext.Current.Server.MapPath(UploadFilePath);
@@ -33,7 +30,8 @@ namespace Q4CsvParser.Web.Core
                 file.SaveAs(serverPath);
                 return serverPath;
             }
-            return "";
+            else
+                return "";
         }
 
         /// <summary>
@@ -44,19 +42,10 @@ namespace Q4CsvParser.Web.Core
         /// <returns>The contents of the file in a string</returns>
         public string ReadFile(string filePath)
         {
-            //TODO fill in your logic here
-            //throw new NotImplementedException();
-
-            if (ExistFile(filePath))
+            if (File.Exists(filePath))
                 return File.ReadAllText(filePath);
             else
                 return "";
-        }
-
-        // helper methods, here for now
-        public bool ExistFile(string filePath = "")
-        {
-            return File.Exists(filePath);
         }
     }
 }
