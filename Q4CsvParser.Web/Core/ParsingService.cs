@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Q4CsvParser.Contracts;
 using Q4CsvParser.Domain;
 
@@ -23,6 +24,23 @@ namespace Q4CsvParser.Web.Core
             // now parse string fileContent in CsvTable object
             var result = new CsvTable();
 
+            // for now to avoid mixed EOF
+            string content = fileContent.Replace("\r\n", "\n"); 
+            var rows = content.Split('\n');
+
+            //header first
+            if (containsHeader)
+            {
+                var HeaderRow = new CsvRow();
+
+                result.HeaderRow = HeaderRow;
+            }
+            if (rows.Length > 0)
+            {
+                var DataRows = new List<CsvRow>();
+
+                result.Rows = DataRows;
+            }
             return result;
         }
     }
